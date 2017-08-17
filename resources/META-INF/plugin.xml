@@ -1,0 +1,61 @@
+<idea-plugin>
+    <id>com.drvector</id>
+    <name>Dr.Vector Android</name>
+    <version>1.1</version>
+    <vendor email="a.n.karpovich@gmail.com" url="https://github.com/eymar/DrVectorAndroid">Alexandr Karpovich</vendor>
+    <description><![CDATA[
+    <html>
+   <h1>Dr.Vector</h1>
+
+   <br>
+   This plugin helps to deal with vector drawable files.
+   It fixes such float declaration: .128 to 0.128, 1.225.443 to 1.225 0.443, 1.30-.25 to 1.30 -0.25
+   </br>
+   <br>
+   NumberFormatException may be thrown on some devices when file contains .128 like float numbers
+   <br>
+
+
+   <h1>How to use it</h1>
+
+   <br>Option 1: Edit - Doctor Vector - Fix Floating Points</br>
+   <br>Option 2: Ctrl + Alt + D</br>
+
+   <br>Both options require vector drawable (xml) to be opened in editor</br>
+
+    </html>     ]]>
+    </description>
+
+    <change-notes>
+        - Added a regex for case when float numbers go without spaces: 1.55.222.333 -> 1.55 0.222 0.333
+    </change-notes>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+    <idea-version since-build="141.0"/>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <!-- uncomment to enable plugin in all products
+    <depends>com.intellij.modules.lang</depends>
+    -->
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+    </extensions>
+
+    <actions>
+        <!--<group id="DrVector.Menu" text="DrVector" description="Doctor Vector">-->
+        <!--<add-to-group group-id="MainMenu" anchor="last"/>-->
+        <!--<action id="DrVector.FixFloatingPoints" class="FixFloatingPointsAction" text="Fix Floating Points"-->
+        <!--description="Fix Floating Points"/>-->
+        <!--</group>-->
+        <action id="FixVectorFloatingPoints" class="com.drvector.ActionFixVectorFloatingPoints"
+                text="Doctor Vector - Fix Floating Points" description="Vector Drawable - Fix Floating Points">
+            <add-to-group group-id="EditMenu" anchor="last"/>
+            <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt D"/>
+        </action>
+    </actions>
+
+    <depends>com.intellij.modules.lang</depends>
+
+</idea-plugin>
