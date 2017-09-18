@@ -1,7 +1,7 @@
 <idea-plugin>
     <id>com.drvector</id>
     <name>Dr.Vector Android</name>
-    <version>1.1</version>
+    <version>1.2</version>
     <vendor email="a.n.karpovich@gmail.com" url="https://github.com/eymar/DrVectorAndroid">Alexandr Karpovich</vendor>
     <description><![CDATA[
     <html>
@@ -27,7 +27,8 @@
     </description>
 
     <change-notes>
-        - Added a regex for case when float numbers go without spaces: 1.55.222.333 -> 1.55 0.222 0.333
+        - v1.1: Added a regex for case when float numbers go without spaces: 1.55.222.333 -> 1.55 0.222 0.333
+        - v1.2: Added a processing for case with capitalized letters: 3.13A.221 -> 3.13A 0.221
     </change-notes>
 
     <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->

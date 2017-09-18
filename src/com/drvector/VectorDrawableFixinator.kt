@@ -5,7 +5,7 @@ object VectorDrawableFixinator {
             "\n" to " ",
             "(-)(\\.\\d)" to " -0$2",
             " (\\.\\d)" to " 0$1",
-            "([a-z])(\\.\\d)" to "$1 0$2"
+            "([a-z]|[A-Z])(\\.\\d)" to "$1 0$2"
     )
 
     fun getContentWithFixedFloatingPoints(value: String): String {
