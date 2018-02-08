@@ -30,7 +30,7 @@ class VectorDrawableFixinatorTest {
         val input = "1.255\n.58\n-.15"
         val output = VectorDrawableFixinator.getContentWithFixedFloatingPoints(input)
 
-        assertTrue("1.255 0.58 -0.15".equals(output))
+        assertTrue("1.255 0.58 -0.15" == output)
     }
 
     @Test
@@ -40,7 +40,7 @@ class VectorDrawableFixinatorTest {
 
         val output = VectorDrawableFixinator.getContentWithFixedFloatingPoints(input)
 
-        assertTrue(expected.equals(output))
+        assertTrue(expected == output)
     }
 
     @Test
@@ -69,7 +69,7 @@ class VectorDrawableFixinatorTest {
 
         val output = VectorDrawableFixinator.getContentWithFixedFloatingPoints(input)
 
-        assertTrue(expected.equals(output))
+        assertTrue(expected == output)
     }
 
     @Test
@@ -80,7 +80,18 @@ class VectorDrawableFixinatorTest {
 
         val output = VectorDrawableFixinator.getContentWithFixedFloatingPoints(input)
 
-        assertTrue(expected.equals(output))
+        assertTrue(expected == output)
+    }
+
+    @Test
+    fun `test replace comas with spaces`() {
+        val input = "M623.73,319.18a 0.6 0.6 ,0,0,1,.63-1s2,.95,3.45 0.26 a 0.6 0.6 ,0,1,1,.52,1.09c-2,.94-4.39 -0.21-4.5 -0.26Z"
+
+        val expected = "M623.73 319.18a 0.6 0.6 0 0 1 0.63-1s2 0.95 3.45 0.26 a 0.6 0.6 0 1 1 0.52 1.09c-2 0.94-4.39 -0.21-4.5 -0.26Z"
+
+        val output = VectorDrawableFixinator.getContentWithFixedFloatingPoints(input)
+
+        assertTrue(expected == output)
     }
 
 }

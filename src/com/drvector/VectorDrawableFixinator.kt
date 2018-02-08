@@ -11,6 +11,9 @@ object VectorDrawableFixinator {
     fun getContentWithFixedFloatingPoints(value: String): String {
         var result = value as CharSequence
 
+        // some paths may contain commas. Replace commas with spaces
+        result = result.replace(",".toRegex(), " ")
+
         val prepareRegex = "(\\.\\d+)(\\.\\d)".toRegex()
 
         while (result.contains(prepareRegex)) { // adds spaces
